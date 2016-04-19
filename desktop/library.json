@@ -1,0 +1,329 @@
+{
+	"Column":
+	{
+		"name":"HyPerCol",
+		"params":
+		[
+			{ "name": "nx", 	"type":"long",	"default":8  	},
+			{ "name": "ny", 	"type":"long",	"default":8  	},
+			{ "name": "printParamsFilename", "type":"string", "default":"pv.params" }
+		]
+	},
+	"Layer":
+	[
+		{
+			"name": "Unknown",
+			"params":
+			[
+				{ "name": "nxScale", 	"type":"double",	"default": 1.0 	},
+				{ "name": "nyScale", 	"type":"double",	"default": 1.0 	},
+				{ "name": "nf",			"type":"long",		"default": 1 	},
+				{ "name": "phase", 		"type":"long",		"default": 1 	}
+			],
+			"style":
+			{
+				"color":	[0.2, 0.2, 0.2],
+				"outline":	[0.1, 0.1, 0.1],
+				"shape":	"Box",
+				"width":	128,
+				"height":	32
+			}
+		},
+		{
+			"name": "ANNLayer",
+			"params":
+			[
+				{ "name": "nxScale", 	"type":"double",	"default": 1.0 		},
+				{ "name": "nyScale", 	"type":"double",	"default": 1.0 		},
+				{ "name": "nf",			"type":"long",		"default": 1 		},
+				{ "name": "phase", 		"type":"long",		"default": 1 		},
+				{ "name": "VThresh", 	"type":"double",	"default": 0.0 		},
+				{ "name": "Amin",	 	"type":"double",	"default":-1.0 		},
+				{ "name": "AMax",	 	"type":"double",	"default": 1.0 		},
+				{ "name": "VWidth", 	"type":"double",	"default": 0.0 		},
+				{ "name": "initVType", 	"type":"string",	"default": "ZeroV" 	},
+				{ "name": "triggerLayerName", 	"type":"string",	"default": "" 	},
+				{ "name": "triggerBehavior", 	"type":"string",	"default": "" 	},
+				{ "name": "triggerResetLayerName", 	"type":"string",	"default": "" 	},
+				{ "name": "writeStep",	"type":"long",		"default": -1 		},
+				{ "name": "initialWriteTime",	"type":"long",		"default": -1 		},
+			],
+			"style":
+			{
+				"color":	[0.1, 0.5, 0.2],
+				"outline":	[0.4, 0.9, 0.4],
+				"shape":	"Box",
+				"width":	128,
+				"height":	32
+			}
+		},{
+			"name": "HyPerLCALayer",
+			"params":
+			[
+				{ "name": "nxScale",	"type":"double",	"default": 0.5 	},
+				{ "name": "nyScale", 	"type":"double",	"default": 0.5 	},
+				{ "name": "nf",			"type":"long",		"default": 128 	},
+				{ "name": "phase", 		"type":"long",		"default": 3 	}
+			],
+			"style":
+			{
+				"color":	[0.2, 0.1, 0.5],
+				"outline":	[0.4, 0.4, 0.9],
+				"shape":	"Diamond",
+				"width":	96,
+				"height":	96,
+				"text_offset": 32
+			}
+		},{
+			"name": "Movie",
+			"params":
+			[
+				{ "name": "nxScale",	"type":"double",	"default": 1.0 	},
+				{ "name": "nyScale", 	"type":"double",	"default": 1.0 	},
+				{ "name": "nf",			"type":"long",		"default": 1 	},
+				{ "name": "phase", 		"type":"long",		"default": 0 	}
+			],
+			"style":
+			{
+				"color": 	[0.5, 0.1, 0.2],
+				"outline":	[0.9, 0.4, 0.4],
+				"shape":	"Box",
+				"width":	96,
+				"height":	32
+			}
+		}
+	],
+	"Connection":
+	[
+		{
+			"name":"Unknown",
+			"params":
+			[
+				{ "name": "preLayerName", 	"type":"string",	"default": ""  	},
+				{ "name": "postLayerName", 	"type":"string",	"default": ""  	},
+				{ "name": "channelCode",	"type":"long",		"default": 0	}
+			],
+			"style":
+			{
+				"color":	[0.2, 0.2, 0.2],
+				"outline":	[0.75, 0.75, 0.75],
+				"shape":	"Oval",
+				"width":	12,
+				"height":	12,
+				"text_offset": 16
+			}
+		
+		},
+		{
+			"name":"CloneConn",
+			"params":
+			[
+				{ "name": "preLayerName", 					"type":"string",	"default": ""  			},
+				{ "name": "postLayerName", 					"type":"string",	"default": ""  			},
+				{ "name": "channelCode",					"type":"long",		"default": 0			},
+				{ "name": "originalConnName",				"type":"string",	"default": ""  			},
+				{ "name": "selfFlag",						"type":"boolean",	"default": false		},
+				{ "name": "convertRateToSpikeCount",		"type":"boolean",	"default": false		},
+				{ "name": "receiveGpu",						"type":"boolean",	"default": false		},
+				{ "name": "updateGSynFromPostPerspective",	"type":"boolean",	"default": false		},
+				{ "name": "pvpatchAccumulateType",			"type":"string",	"default": "convolve"	}
+			],
+			"style":
+			{
+				"color":	[0.1, 0.2, 0.5],
+				"outline":	[0.75, 0.75, 0.75],
+				"shape":	"Oval",
+				"width":	12,
+				"height":	12,
+				"text_offset": 16
+			}
+		},
+		{
+			"name":"TransposeConn",
+			"params":
+			[
+				{ "name": "preLayerName", 					"type":"string",	"default": ""  			},
+				{ "name": "postLayerName", 					"type":"string",	"default": ""  			},
+				{ "name": "channelCode",					"type":"long",		"default": 0			},
+				{ "name": "originalConnName",				"type":"string",	"default": ""  			},
+				{ "name": "selfFlag",						"type":"boolean",	"default": false		},
+				{ "name": "convertRateToSpikeCount",		"type":"boolean",	"default": false		},
+				{ "name": "receiveGpu",						"type":"boolean",	"default": false		},
+				{ "name": "updateGSynFromPostPerspective",	"type":"boolean",	"default": false		},
+				{ "name": "pvpatchAccumulateType",			"type":"string",	"default": "convolve"	}
+			],
+			"style":
+			{
+				"color":	[0.5, 0.2, 0.5],
+				"outline":	[0.75, 0.75, 0.75],
+				"shape":	"Oval",
+				"width":	12,
+				"height":	12,
+				"text_offset": 16
+			}
+		},
+		{
+			"name":"MomentumConn",
+			"params":
+			[
+				{ "name": "preLayerName", 					"type":"string",	"default": ""  				},
+				{ "name": "postLayerName", 					"type":"string",	"default": ""  				},
+				{ "name": "channelCode",					"type":"long",		"default": 0				},
+				{ "name": "nxp",							"type":"long",		"default": 1				},
+				{ "name": "nyp",							"type":"long",		"default": 1				},
+				{ "name": "nfp",							"type":"long",		"default": 1				},
+				{ "name": "plasticityFlag",					"type":"boolean",	"default": false			},
+				{ "name": "dWMax",							"type":"double",	"default": "1.0"			},
+				{ "name": "sharedWeights",					"type":"boolean",	"default": true				},
+				{ "name": "weightInitType",					"type":"string",	"default": "OneToOneWeights"},
+				{ "name": "weightInit",						"type":"double",	"default": "0.0721688"		},
+				{ "name": "wMinInit",						"type":"double",	"default": "-1.0"			},
+				{ "name": "wMaxInit",						"type":"double",	"default": "1.0"			},
+				{ "name": "combine_dW_with_W_flag",			"type":"boolean",	"default": false			},
+				{ "name": "normalizeDw",					"type":"boolean",	"default": true				},
+				{ "name": "pvpatchAccumulateType",			"type":"string",	"default": "convolve"		},
+				{ "name": "normalizeMethod",				"type":"string",	"default": "none"			},
+				{ "name": "numAxonalArbors",				"type":"long",		"default": 1				},
+				{ "name": "initWeightsFile",				"type":"string",	"default": ""				},
+				{ "name": "writeStep",						"type":"long",		"default": -1				},
+				{ "name": "writeCompressedCheckpoints",		"type":"boolean",	"default": false			},
+				{ "name": "shrinkPatches",					"type":"boolean",	"default": false			},
+				{ "name": "selfFlag",						"type":"boolean",	"default": false			},
+				{ "name": "convertRateToSpikeCount",		"type":"boolean",	"default": false			},
+				{ "name": "receiveGpu",						"type":"boolean",	"default": false			},
+				{ "name": "updateGSynFromPostPerspective",	"type":"boolean",	"default": false			}
+
+			],
+			"style":
+			{
+				"color":	[0.2, 0.5, 0.5],
+				"outline":	[0.75, 0.75, 0.75],
+				"shape":	"Oval",
+				"width":	12,
+				"height":	12,
+				"text_offset": 16
+			}
+		},
+		{
+			"name":"HyPerConn",
+			"params":
+			[
+				{ "name": "preLayerName", 					"type":"string",	"default": ""  				},
+				{ "name": "postLayerName", 					"type":"string",	"default": ""  				},
+				{ "name": "channelCode",					"type":"long",		"default": 0				},
+				{ "name": "nxp",							"type":"long",		"default": 1				},
+				{ "name": "nyp",							"type":"long",		"default": 1				},
+				{ "name": "nfp",							"type":"long",		"default": 1				},
+				{ "name": "plasticityFlag",					"type":"boolean",	"default": false			},
+				{ "name": "dWMax",							"type":"double",	"default": "1.0"			},
+				{ "name": "sharedWeights",					"type":"boolean",	"default": true				},
+				{ "name": "weightInitType",					"type":"string",	"default": "OneToOneWeights"},
+				{ "name": "weightInit",						"type":"double",	"default": "0.0721688"		},
+				{ "name": "wMinInit",						"type":"double",	"default": "-1.0"			},
+				{ "name": "wMaxInit",						"type":"double",	"default": "1.0"			},
+				{ "name": "combine_dW_with_W_flag",			"type":"boolean",	"default": false			},
+				{ "name": "normalizeDw",					"type":"boolean",	"default": true				},
+				{ "name": "pvpatchAccumulateType",			"type":"string",	"default": "convolve"		},
+				{ "name": "normalizeMethod",				"type":"string",	"default": "none"			},
+				{ "name": "numAxonalArbors",				"type":"long",		"default": 1				},
+				{ "name": "initWeightsFile",				"type":"string",	"default": ""				},
+				{ "name": "writeStep",						"type":"long",		"default": -1				},
+				{ "name": "writeCompressedCheckpoints",		"type":"boolean",	"default": false			},
+				{ "name": "shrinkPatches",					"type":"boolean",	"default": false			},
+				{ "name": "selfFlag",						"type":"boolean",	"default": false			},
+				{ "name": "convertRateToSpikeCount",		"type":"boolean",	"default": false			},
+				{ "name": "receiveGpu",						"type":"boolean",	"default": false			},
+				{ "name": "updateGSynFromPostPerspective",	"type":"boolean",	"default": false			}
+
+			],
+			"style":
+			{
+				"color":	[0.2, 0.5, 0.1],
+				"outline":	[0.75, 0.75, 0.75],
+				"shape":	"Oval",
+				"width":	12,
+				"height":	12,
+				"text_offset": 16
+			}
+		},
+		{
+			"name":"PoolingConn",
+			"params":
+			[
+				{ "name": "preLayerName", 					"type":"string",	"default": ""  				},
+				{ "name": "postLayerName", 					"type":"string",	"default": ""  				},
+				{ "name": "needPostIndexLayer",				"type":"boolean",	"default": true				},
+				{ "name": "postIndexLayerName",				"type":"string",	"default": ""  				},
+				{ "name": "channelCode",					"type":"long",		"default": 0				},
+				{ "name": "nxp",							"type":"long",		"default": 1				},
+				{ "name": "nyp",							"type":"long",		"default": 1				},
+				{ "name": "nfp",							"type":"long",		"default": 1				},
+				{ "name": "pvpatchAccumulateType",			"type":"string",	"default": "convolve"		},
+				{ "name": "sharedWeights",					"type":"boolean",	"default": true				},
+				{ "name": "weightInitType",					"type":"string",	"default": "OneToOneWeights"},
+				{ "name": "weightInit",						"type":"double",	"default": "0.0721688"		},
+				{ "name": "wMinInit",						"type":"double",	"default": "-1.0"			},
+				{ "name": "wMaxInit",						"type":"double",	"default": "1.0"			},
+				{ "name": "numAxonalArbors",				"type":"long",		"default": 1				},
+				{ "name": "initWeightsFile",				"type":"string",	"default": ""				},
+				{ "name": "writeStep",						"type":"long",		"default": -1				},
+				{ "name": "writeCompressedCheckpoints",		"type":"boolean",	"default": false			},
+				{ "name": "shrinkPatches",					"type":"boolean",	"default": false			},
+				{ "name": "selfFlag",						"type":"boolean",	"default": false			},
+				{ "name": "convertRateToSpikeCount",		"type":"boolean",	"default": false			},
+				{ "name": "receiveGpu",						"type":"boolean",	"default": false			},
+				{ "name": "updateGSynFromPostPerspective",	"type":"boolean",	"default": false			}
+
+			],
+			"style":
+			{
+				"color":	[0.5, 0.5, 0.1],
+				"outline":	[0.75, 0.75, 0.75],
+				"shape":	"Oval",
+				"width":	12,
+				"height":	12,
+				"text_offset": 16
+			}
+		},
+		{
+			"name":"IdentConn",
+			"params":
+			[
+				{ "name": "preLayerName", 	"type":"string",	"default": ""  	},
+				{ "name": "postLayerName", 	"type":"string",	"default": ""  	},
+				{ "name": "channelCode",	"type":"long",		"default": 0	},
+				{ "name": "initWeightsFile","type":"string",	"default": ""  	}
+			],
+			"style":
+			{
+				"color":	[0.5, 0.2, 0.1],
+				"outline":	[0.75, 0.75, 0.75],
+				"shape":	"Oval",
+				"width":	12,
+				"height":	12,
+				"text_offset": 16
+			}
+		}
+	],
+	"Probe":
+	[
+		{
+			"name":"Unknown",
+			"params":
+			[
+				{ "name": "triggerLayerName", 	"type":"string",	"default": ""  					},
+				{ "name": "textOutputFlag", 	"type":"boolean",	"default": false				},
+				{ "name": "probeOutputFile",	"type":"string",	"default": "probeOutput.txt"	}
+			],
+			"style":
+			{
+				"color":	[0.1, 0.1, 0.1],
+				"outline":	[0.1, 0.5, 0.1],
+				"shape":	"Triangle",
+				"width":	24,
+				"height":	48,
+				"text_offset": 16
+			}
+		}
+	]
+}
